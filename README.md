@@ -1,5 +1,7 @@
 # RWEB — Rust WASM Particle Portfolio
 
+[![Build static site](https://github.com/ovws/rweb/actions/workflows/build.yml/badge.svg)](https://github.com/ovws/rweb/actions/workflows/build.yml)
+
 A **pure static personal homepage** and browser compute benchmark built with Vite, TypeScript, Three.js, Rust, WebAssembly, `wasm-bindgen` / `wasm-pack`, and Web Worker + OffscreenCanvas.
 
 The visual layer is a large real-time 3D particle field. The benchmark lets the same simulation run in either optimized JavaScript or Rust/WASM so the difference is measured rather than staged.
