@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#050608" />
+    <meta name="description" content="Qiwen Song — static portfolio and Rust WebAssembly particle benchmark." />
+    <title>Qiwen Song — Rust × WASM</title>
+  </head>
+  <body>
+    <div id="app">
+      <header class="site-header">
+        <a class="brand" href="#home" aria-label="Home"><span class="brand-dot"></span>QIWEN / RWEB</a>
+        <nav aria-label="Primary navigation">
+          <a href="#home">Home</a><a href="#about">About</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#contact">Contact</a>
+        </nav>
+        <button id="bench-toggle" class="ghost-button" type="button">Benchmark</button>
+      </header>
+
+      <main>
+        <section id="home" class="hero section-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">STATIC SYSTEM / 2026</p>
+            <h1>Compute<br /><span>in motion.</span></h1>
+            <p class="lede">A minimal personal homepage built around a real-time particle system where Rust WebAssembly and JavaScript run the same CPU-heavy simulation under identical conditions.</p>
+            <div class="hero-actions">
+              <button id="explode" class="primary-button" type="button">Trigger impulse</button>
+              <button id="morph" class="text-button" type="button">Morph field ↗</button>
+            </div>
+          </div>
+          <div class="hero-meta">
+            <span>Rust / WASM</span><span>Three.js</span><span>Web Worker</span><span>200K particles</span>
+          </div>
+          <div id="canvas-shell" class="canvas-shell" aria-label="Interactive particle field">
+            <canvas id="particle-canvas"></canvas>
+            <div id="fallback-visual" class="fallback-visual" hidden><div class="fallback-orbit"></div><p>Visual compute layer unavailable.<br/>Portfolio remains fully accessible.</p></div>
+            <div class="canvas-hint">MOVE — ATTRACT · ALT — REPEL · CLICK — RIPPLE</div>
+          </div>
+        </section>
+
+        <section id="about" class="content-section section-grid">
+          <p class="section-index">01 / ABOUT</p>
+          <div class="section-copy"><h2>Systems should feel simple,<br/>even when the work is not.</h2><p>I build web experiences, automation, cloud tooling and small products with a bias toward fast interfaces, clear structure and measurable performance.</p></div>
+          <div class="fact-grid"><article><span>Focus</span><strong>Web / Cloud / Open Source</strong></article><article><span>Approach</span><strong>Prototype → measure → refine</strong></article><article><span>Current experiment</span><strong>Rust in the browser</strong></article></div>
+        </section>
+
+        <section id="projects" class="content-section section-grid">
+          <p class="section-index">02 / PROJECTS</p>
+          <div class="project-list">
+            <article class="project-card"><span>01</span><h3>RWEB Particle Lab</h3><p>Fair JS vs Rust/WASM benchmark with spatial hashing, neighbour search, force fields and morphing.</p><b>THIS PROJECT ↗</b></article>
+            <article class="project-card"><span>02</span><h3>DropPage</h3><p>Brand-led interactive portfolio experiments focused on typography, motion and resilient static delivery.</p><b>INTERFACE SYSTEM ↗</b></article>
+            <article class="project-card"><span>03</span><h3>Automation Stack</h3><p>Small tools that connect content, operations and repetitive workflows into reliable pipelines.</p><b>TOOLS / WORKFLOWS ↗</b></article>
+          </div>
+        </section>
+
+        <section id="skills" class="content-section section-grid">
+          <p class="section-index">03 / SKILLS</p>
+          <div class="skills-cloud"><span>TypeScript</span><span>Rust</span><span>WebAssembly</span><span>Three.js</span><span>Vite</span><span>Cloudflare</span><span>Vercel</span><span>GitHub</span><span>Automation</span><span>Performance</span></div>
+        </section>
+
+        <section id="contact" class="contact-section section-grid">
+          <p class="section-index">04 / CONTACT</p>
+          <h2>Build something<br/>that earns its pixels.</h2>
+          <div class="contact-links"><a href="https://github.com/ovws" target="_blank" rel="noreferrer">GitHub ↗</a><a href="https://www.qiwensong.com/" target="_blank" rel="noreferrer">qiwensong.com ↗</a></div>
+        </section>
+      </main>
+
+      <aside id="benchmark-panel" class="benchmark-panel" aria-live="polite">
+        <div class="panel-top"><div><p>COMPUTE BENCHMARK</p><strong id="engine-state">INITIALIZING</strong></div><button id="bench-close" type="button">×</button></div>
+        <div class="engine-switch"><button data-engine="js" type="button">JavaScript</button><button data-engine="wasm" class="active" type="button">Rust WASM</button></div>
+        <div class="count-switch"><button data-count="10000" type="button">10K</button><button data-count="50000" class="active" type="button">50K</button><button data-count="100000" type="button">100K</button><button data-count="200000" type="button">200K</button></div>
+        <dl class="metrics"><div><dt>FPS</dt><dd id="fps">—</dd></div><div><dt>Frame time</dt><dd id="frame-time">—</dd></div><div><dt>Simulation</dt><dd id="sim-time">—</dd></div><div><dt>Particles</dt><dd id="particles">50,000</dd></div><div><dt>Network edges</dt><dd id="edges">—</dd></div></dl>
+        <p id="wasm-note" class="panel-note">WASM status: checking…</p>
+        <p class="panel-footnote">Same seed, timestep, force constants, hash grid and neighbour cap are used by both engines. Rendering is excluded from Simulation Time.</p>
+      </aside>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
