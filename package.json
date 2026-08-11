@@ -1,0 +1,20 @@
+{
+  "name": "rweb",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/build-wasm.mjs && vite",
+    "build": "node scripts/build-wasm.mjs && tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "wasm:build": "wasm-pack build wasm --target web --release --out-dir ../public/wasm --out-name rweb_wasm"
+  },
+  "dependencies": {
+    "three": "^0.179.1"
+  },
+  "devDependencies": {
+    "@types/three": "^0.179.0",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.1"
+  }
+}
